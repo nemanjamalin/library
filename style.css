@@ -3,3 +3,178 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    font-size: 10px;
+    font-family: "Roboto", sans-serif;
+}
+:root{
+    --font-size-400: 1.7rem;
+
+    --font-size-main : 1.5rem;
+
+    --font-size-700 : 2.7rem;
+
+
+    --color-black: #000;
+    --color-white: #fff;
+    --color-gray-main: #475569;
+}
+
+.visible{
+    display: block;
+}
+.not-visible{
+    display: none;
+}
+
+a:visited{
+    color: #000;
+}
+
+li, a{
+    list-style: none;
+    text-decoration: none;
+}
+
+svg{
+    width: 5rem;
+    height: 5rem;
+}
+
+button{
+    padding: 1rem;
+    font-size: var(--font-size-main);
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white);
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+#addBook{
+    min-width: 12rem;
+}
+
+body{
+    display: grid;
+    grid-template-rows: 10vh 80vh 10vh;
+}
+
+header{
+    /* border: 2px solid red; */
+}
+.main{
+    /* border: 2px solid red; */
+}
+
+footer{
+    /* border: 2px solid red; */
+}
+
+
+/* header section */
+
+.header{
+    display: flex;
+    padding: 2rem;
+    border-bottom: 1px solid var(--color-black);
+}
+
+.logo-part, .button-part{
+    /* border: 2px solid red; */
+    flex: 1;
+}
+
+.logo-part{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo-part h2{
+    font-size: var(--font-size-700);
+}
+
+.button-part{
+    display: flex;
+    align-items: center;
+}
+.button-part button{
+    margin-left: auto;
+    
+}
+
+/* main part */
+
+.main{
+    padding: 5rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,20rem);
+    gap: 2rem;
+}
+
+.modal{
+    width: 30rem;
+    height: fit-content;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1rem;
+    background-color: var(--color-gray-main);
+
+}
+
+.card{
+    padding: 2rem;
+    max-height: 25rem;
+    border: 1px solid red;
+}
+
+
+/* FORM */
+
+
+form{
+    font-size: var(--font-size-main);
+    padding: 2rem;
+}
+
+form button{
+    display: block;
+   margin: 0 auto;
+}
+
+.part{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 2rem;
+    gap: 1rem;
+
+   
+}
+
+/* card */
+
+.card{
+    font-size: 1.1rem;
+}
+
+.card h2{
+    margin-bottom: 2rem;
+}
+
+/* footer part */
+
+footer{
+  display: grid;
+  place-items: center;
+  border-top: 1px solid var(--color-black);
+}
+footer p{
+    font-size: var(--font-size-main);
+}
