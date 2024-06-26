@@ -25,6 +25,8 @@
             <h2>Author:</h2>
             <h2>Number of pages:</h2>
             <h2>Read status: </h2>
+
+            <button>Remove</button>
         </div>
         <div class="modal not-visible">
             <form action="">
@@ -40,17 +42,14 @@
                     <label for="numberOfPages">Number of pages:</label>
                     <input type="number" name="numberOfPages" id="numberOfPages" min="1" required>
                 </div>
-
-                <label class="question">Have you read it?</label>
-
                 <div class="part">
-                    <label for="read">Yes</label>
-                    <input type="radio" id="read" name="question" value="true">
+                    <label class="question">Have you read it?</label>
+                    <select name="statusRead" id="statusRead">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
                 </div>
-                <div class="part">
-                    <label for="not-read">No</label>
-                    <input type="radio" id="not-read" name="question" value="false">
-                </div>
+                
                 <button id="newBook">Add Book</button>
             </form>
           
