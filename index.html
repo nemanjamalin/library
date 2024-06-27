@@ -26,17 +26,17 @@
             <h2>Number of pages:</h2>
             <h2>Read status: </h2>
 
-            <button>Remove</button>
+            <button class="removeBook">Remove</button>
         </div>
         <div class="modal not-visible">
             <form action="">
                 <div class="part">
                     <label for="author">Author:</label>
-                    <input type="text" name="author" id="author" required>
+                    <input type="text" name="author" id="author">
                 </div>
                 <div class="part">
                     <label for="title">Title:</label>
-                    <input type="text" name="title" id="title" required>
+                    <input type="text" name="title" id="title">
                 </div>
                 <div class="part">
                     <label for="numberOfPages">Number of pages:</label>
@@ -45,14 +45,15 @@
                 <div class="part">
                     <label class="question">Have you read it?</label>
                     <select name="statusRead" id="statusRead">
+                        <option value=""></option>
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
                     </select>
                 </div>
                 
-                <button id="newBook">Add Book</button>
+               
             </form>
-          
+            <button id="newBook">Add Book</button>
         </div>
     </section>
 

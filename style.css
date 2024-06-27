@@ -20,9 +20,7 @@ html{
     --color-gray-main: #475569;
 }
 
-.visible{
-    display: block;
-}
+
 .not-visible{
     display: none;
 }
@@ -112,7 +110,7 @@ footer{
     padding: 5rem;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit,20rem);
+    grid-template-columns: repeat(auto-fit,25rem);
     gap: 2rem;
 }
 
@@ -131,7 +129,7 @@ footer{
 
 .card{
     padding: 2rem;
-    max-height: 25rem;
+    max-height: 28rem;
     border: 1px solid red;
 }
 
