@@ -25,7 +25,11 @@ addBook.addEventListener('click', modalDisplay);
 
 // adding books logic:
 
-const myLibrary = [];
+const myLibrary = [{author: 'MyselfAgain', title: 'Initial 2', pagesNumber: 'still 0', read: 'stil no'}];
+
+myLibrary.forEach((element,index)=>{
+  displayBook(element.title,element.author,element.pagesNumber,element.read,index);
+});
 
 let newBook = document.querySelector('#newBook'); //button that inititates new book addition
 
