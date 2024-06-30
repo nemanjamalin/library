@@ -28,6 +28,7 @@ addBook.addEventListener('click', modalDisplay);
 const myLibrary = [{author: 'MyselfAgain', title: 'Initial 2', pagesNumber: 'still 0', read: 'stil no'}];
 
 myLibrary.forEach((element,index)=>{
+  console.log(element.title);
   displayBook(element.title,element.author,element.pagesNumber,element.read,index);
 });
 
@@ -44,16 +45,16 @@ function Book(author, title, pagesNumber,read) {
 
 
 function displayBook(title, author, numberOfPages, read, index){ //display new book card in amin
-
-  document.querySelector('.card').insertAdjacentHTML("afterend",
+  document.querySelector('.initial').insertAdjacentHTML("afterend",
     `
      <div class="card" data-index="${index}">
-            <h2>Title: ${title.value || "not-defined"}</h2>
-            <h2>Author: ${author.value || "not-defined"}</h2>
-            <h2>Number of pages: ${numberOfPages.value || "not-defined"}</h2>
-            <h2>Read status: ${read.value || "not-defined"}</h2>
+            <h2>Title: ${title|| "not-defined"}</h2>
+            <h2>Author: ${author || "not-defined"}</h2>
+            <h2>Number of pages: ${numberOfPages || "not-defined"}</h2>
+            <h2 class="status">Read status: ${read || "not-defined"}</h2>
 
               <button class="removeBook">Remove</button>
+              <button class="changeStatus">Change</button>
         </div>
   `
   );
@@ -72,17 +73,29 @@ function removeBook(index){
 }
 
 
+function changeStatus(book,index){
+  let status = book.querySelector('.status');
+  console.log(status.innerHTML);
+  if(status.innerHTML !== "Read status: Yes") {
+    status.innerHTML = "Read status: Yes";
+    myLibrary[index].read = "Yes";
+  }else  if(status.innerHTML == "Read status: Yes") {
+    status.innerHTML = "Read status: No";
+    myLibrary[index].read = "No";
+  } 
+}
+
 
 newBook.addEventListener('click', function(event){
   event.preventDefault();
 
-  const title = document.querySelector('#title');
-  const author = document.querySelector('#author');
-  const numberOfPages = document.querySelector('#numberOfPages');
-  const read = document.querySelector('#statusRead');
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
+  const numberOfPages = document.querySelector('#numberOfPages').value;
+  const read = document.querySelector('#statusRead').value;
 
 
-  const book = new Book(author.value,title.value,numberOfPages.value,read.value);
+  const book = new Book(author,title,numberOfPages,read);
   displayBook(title,author,numberOfPages,read,storeBookObject(book));
 
 });
@@ -94,7 +107,13 @@ document.querySelector('.main').addEventListener('click', function(event){
     removeBook(event.target.closest('.card').dataset.index);
     event.target.closest('.card').remove();
   }
+
+  if(event.target.classList.contains('changeStatus')){
+    changeStatus(event.target.closest('.card'),event.target.closest('.card').dataset.index);
+  }
   
 });
+
+
 
 

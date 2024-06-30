@@ -130,7 +130,7 @@ footer{
 .card{
     padding: 2rem;
     max-height: 28rem;
-    border: 1px solid red;
+    border: 1px solid var(--color-gray-main);
 }
 
 
@@ -157,6 +157,13 @@ form button{
 }
 
 /* card */
+
+.initial{
+    font-size:var(--font-size-400);
+    border: 1px solid var(--color-gray-main);
+    display: grid;
+    place-content: center;
+}
 
 .card{
     font-size: 1.1rem;
