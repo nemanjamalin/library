@@ -27,10 +27,6 @@ addBook.addEventListener('click', modalDisplay);
 
 const myLibrary = [{author: 'MyselfAgain', title: 'Initial 2', pagesNumber: 'still 0', read: 'stil no'}];
 
-myLibrary.forEach((element,index)=>{
-  console.log(element.title);
-  displayBook(element.title,element.author,element.pagesNumber,element.read,index);
-});
 
 let newBook = document.querySelector('#newBook'); //button that inititates new book addition
 
@@ -42,6 +38,19 @@ function Book(author, title, pagesNumber,read) {
   this.pagesNumber = pagesNumber;
   this.read =read;
 } // function constructor to make new book object
+
+Book.prototype.changeRead = function(){
+  if(this.read === "yes"){
+    this.read = "no";
+  }else if(this.read !== "yes") this.read = "yes";
+}
+
+myLibrary.forEach((element,index)=>{
+  console.log(element.title);
+  displayBook(element.title,element.author,element.pagesNumber,element.read,index);
+  Object.setPrototypeOf(element, Book.prototype);
+});
+
 
 
 function displayBook(title, author, numberOfPages, read, index){ //display new book card in amin
@@ -76,12 +85,12 @@ function removeBook(index){
 function changeStatus(book,index){
   let status = book.querySelector('.status');
   console.log(status.innerHTML);
-  if(status.innerHTML !== "Read status: Yes") {
-    status.innerHTML = "Read status: Yes";
-    myLibrary[index].read = "Yes";
-  }else  if(status.innerHTML == "Read status: Yes") {
-    status.innerHTML = "Read status: No";
-    myLibrary[index].read = "No";
+  if(status.innerHTML !== "Read status: yes") {
+    status.innerHTML = "Read status: yes";
+    myLibrary[index].changeRead();
+  }else  if(status.innerHTML == "Read status: yes") {
+    status.innerHTML = "Read status: no";
+    myLibrary[index].changeRead();
   } 
 }
 
