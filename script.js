@@ -45,6 +45,10 @@ Book.prototype.changeRead = function(){
   }else if(this.read !== "yes") this.read = "yes";
 }
 
+Book.prototype.remove = function(){
+  alert(myLibrary.indexOf(this));
+}
+
 myLibrary.forEach((element,index)=>{
   console.log(element.title);
   displayBook(element.title,element.author,element.pagesNumber,element.read,index);
@@ -75,6 +79,10 @@ function storeBookObject(book) {
 } 
 
 function removeBook(index){
+  let cards = document.querySelectorAll('.card');
+  cards.forEach(function(card){
+    if(index < card.dataset.index) card.dataset.index = card.dataset.index - 1;
+  });
   if(myLibrary.length === 1){
     myLibrary.splice(0,1);
   }
