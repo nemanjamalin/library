@@ -65,6 +65,7 @@ header{
 }
 .main{
     /* border: 2px solid red; */
+    overflow: scroll;
 }
 
 footer{
